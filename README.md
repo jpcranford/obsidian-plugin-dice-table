@@ -1,6 +1,8 @@
 # Dice Table Calculator: An Obsidian Plugin
 
-Very simple plugin. When you run the command on a table with dice notation as the first column's header, it automatically calculates and fills the first column of a Markdown table with evenly distributed dice ranges.
+When you run the command on a table with dice notation as the first column's header, it automatically calculates and fills the first column of a Markdown table with evenly distributed dice ranges.
+
+As far as plugins go, this is about as simple and lightweight as you can get. Two total commands, one setting, and it only runs when you tell it to.
 
 ## How it works
 

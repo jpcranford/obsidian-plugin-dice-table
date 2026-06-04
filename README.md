@@ -61,34 +61,16 @@ You can use `d4`, `d6`, `d8`, `d10`, `d12`, `d20`, `d100`, `d%`, and anything ma
 
 When the number of rows doesn't divide the range evenly — or you're using a dice pool — the plugin produces ranges. Remainder values are evenly spread across the rows so the distribution stays as even as possible.
 
-**Before (d20 with 8 rows):**
+For `2d6`, the rollable range is **2–12** (11 values). A table with 5 rows gets:
 
-```markdown
-| d20 | Wilderness Event        |
-|-----|-------------------------|
-|     | Clear skies, easy march |
-|     | Heavy rain, slow travel |
-|     | Distant smoke           |
-|     | Tracks in the mud       |
-|     | Abandoned campsite      |
-|     | Howling in the night    |
-|     | Strange lights          |
-|     | Ambush!                 |
 ```
-
-**After:**
-
-```markdown
-| d20 | Wilderness Event        |
-|-----|-------------------------|
-| 1-3 | Clear skies, easy march |
-| 4-5 | Heavy rain, slow travel |
-| 6-8 | Distant smoke           |
-| 9-10 | Tracks in the mud      |
-| 11-13 | Abandoned campsite    |
-| 14-15 | Howling in the night  |
-| 16-18 | Strange lights        |
-| 19-20 | Ambush!               |
+| 2d6  | Result       |
+|------|--------------|
+| 2-3  | Critical fail|
+| 4-5  | Failure      |
+| 6-8  | Mixed        |
+| 9-10 | Success      |
+| 11-12| Critical hit |
 ```
 
 ## Optional Settings

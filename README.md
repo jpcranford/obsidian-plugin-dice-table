@@ -4,25 +4,15 @@ A simple plugin that automatically calculates and fills the first column of a Ma
 
 As far as plugins go, this is about as simple and lightweight as you can get. Two total commands, one setting, and it only changes stuff when you tell it to.[^2]
 
-[^2]: Unless you forgot that you set it to auto-update all the time. But I'm a programmer, not a mind-reader.
+[^2]: Unless you forgot that you told it to run every 300ms. But I'm a programmer, not a mind-reader.
 
 ## How to use
 
-Create a Markdown table whose **first column's header** is any standard dice notation:
-
-| Notation | Die / Pool |
-|----------|------------|
-| `d6`     | Six-sided die (1–6) |
-| `d20`    | Twenty-sided die (1–20) |
-| `d100` / `d%` | Percentile (1–100) |
-| `2d6`    | Two six-sided dice (2–12) |
-| `3d8`    | Three eight-sided dice (3–24) |
+Create a Markdown table whose **first column's header** is any standard dice notation, That is `d4`, `d6`, `d8`, `d10`, `d12`, `d20`, `d100`, `d%`, and anything matching `XdX`, e.g. `2d6`, `3d10`, `5d4`. Case insensitive throughout.
 
 Leave the first-column cells blank (or don't — but they'll be overwritten). Fill in your table content in the other columns. 
 
-Then, run one of the included commands via the Command Palette (`Ctrl/Cmd + P`): "Fill dice column in table at cursor" or "Fill all dice columns in this file". Each does what they sound like.
-
-You can use `d4`, `d6`, `d8`, `d10`, `d12`, `d20`, `d100`, `d%`, and anything matching `XdX`, e.g. `2d6`, `3d10`, `5d4`. Case insensitive throughout.
+Then, run one of the included commands via the Command Palette (`Ctrl/Cmd + P`): **"Fill dice column in table at cursor"** or **"Fill all dice columns in this file"**. They do what they sound like.
 
 ### Caveats
 
@@ -33,7 +23,7 @@ You can use `d4`, `d6`, `d8`, `d10`, `d12`, `d20`, `d100`, `d%`, and anything ma
 
 [^1]: In the event of frustrating and/or cataclysmic data loss, please create a warning prompt and submit a PR so everyone wins.
 
-## Example
+## Examples
 
 **Before:**
 

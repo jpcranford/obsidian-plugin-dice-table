@@ -1,5 +1,6 @@
 // TODO: New command: Suggest dice for table at cursor based on row count, aiming for even odds across the table.
 // TODO: Warn before calc if first column contains content.
+// TODO: Remove 'builtin modules' dependency
 
 import {
   App,

@@ -377,7 +377,7 @@ class DiceTableSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
 
-    containerEl.createEl("h2", { text: "Dice table settings" });
+    // new Setting(containerEl).setName('Dice table settings').setHeading() 
 
     new Setting(containerEl)
       .setName("Auto-fill on file modify")

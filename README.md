@@ -63,7 +63,7 @@ When the number of rows doesn't divide the range evenly — or you're using a di
 
 For `2d6`, the rollable range is **2–12** (11 values). A table with 5 rows gets:
 
-```
+```markdown
 | 2d6  | Result       |
 |------|--------------|
 | 2-3  | Critical fail|

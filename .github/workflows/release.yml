@@ -1,5 +1,8 @@
 name: Release Obsidian plugin
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true  # Force all actions to run on Node.js 24
+
 on:
   push:
     tags:

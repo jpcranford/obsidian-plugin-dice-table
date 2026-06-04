@@ -1,7 +1,7 @@
 {
   "id": "dice-table-calculator",
   "name": "Dice Table Calculator",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "minAppVersion": "1.0.0",
   "description": "Detects TTRPG dice notation (d6, 2d8, d100…) in the first column of table headers and auto-fills the first column with evenly distributed roll ranges.",
   "author": "jpcranford",

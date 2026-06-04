@@ -1,3 +1,5 @@
+// TODO: New command: Suggest dice for table at cursor based on row count, aiming for even odds across the table.
+
 import {
   App,
   Editor,
@@ -289,7 +291,7 @@ export default class DiceTablePlugin extends Plugin {
     }
 
     this.replaceTableInEditor(editor, lines, table, newTableLines);
-    new Notice(`✅ Filled ${table.dataRows.length} rows for ${table.headerCols[0]}`);
+    new Notice(`Filled ${table.dataRows.length} rows for ${table.headerCols[0]}`);
   }
 
   // ── Fill ALL dice tables in the file ──
@@ -330,7 +332,7 @@ export default class DiceTablePlugin extends Plugin {
 
     if (filled > 0) {
       editor.setValue(lines.join("\n"));
-      if (!silent) new Notice(`✅ Filled ${filled} dice table(s).`);
+      if (!silent) new Notice(`Filled ${filled} dice table(s).`);
     } else {
       if (!silent) new Notice("No dice tables found in this file.");
     }

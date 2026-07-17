@@ -19,8 +19,6 @@ Then, run one of the included commands via the Command Palette (`Ctrl/Cmd + P`):
 - Tables must be standard Obsidian/GFM Markdown pipe tables.
 - Auto-fill on save can be disruptive if you're mid-edit; keep that setting off until the table is fully structured.
 
-[^1]: In the event of frustrating and/or cataclysmic data loss, please create a warning prompt PR so everyone wins.
-
 ## Examples
 
 **Before:**
@@ -67,6 +65,9 @@ For `2d6`, the rollable range is **2–12** (11 values). A table with 5 rows get
 
 | Setting | Default | Description |
 |---------|---------|-------------|
+| Distribution mode | Distributed (alternating) | Four different algorithms for dealing with remainders. Choose between top/bottom weighted, evenly distributing remainders throughout (or even subtly favoring the top of the table!) |
 | Auto-fill on file modify | Off | Runs "fill all" automatically on every file save |
+
+[^1]: In the event you experience frustrating and/or cataclysmic data loss, please create a PR so everyone wins.
 
 [^2]: Unless you forgot that you told it to run every 300ms. But I'm a programmer, not a mind-reader.

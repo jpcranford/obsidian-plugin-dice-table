@@ -1,6 +1,5 @@
 // TODO: New command: Suggest dice for table at cursor based on row count, aiming for even odds across the table.
 // TODO: Warn before calc if first column contains content.
-// TODO: Remove 'builtin modules' dependency
 
 import {
   App,
@@ -360,7 +359,7 @@ export default class DiceTablePlugin extends Plugin {
         this.app.vault.on("modify", (file) => {
           const view = this.app.workspace.getActiveViewOfType(MarkdownView);
           if (view && view.file === file) {
-            setTimeout(() => {
+            window.setTimeout(() => {
               const editor = view.editor;
               if (editor) this.fillAllTables(editor, true);
             }, 300);
@@ -433,7 +432,8 @@ export default class DiceTablePlugin extends Plugin {
   }
 
   async loadSettings() {
-    this.settings = Object.assign({}, DEFAULT_SETTINGS, await this.loadData());
+    const saved = await this.loadData() as Partial<DiceTableSettings> | null;
+    this.settings = Object.assign({}, DEFAULT_SETTINGS, saved);
   }
 
   async saveSettings() {
@@ -446,6 +446,10 @@ export default class DiceTablePlugin extends Plugin {
 class DiceTableSettingTab extends PluginSettingTab {
   plugin: DiceTablePlugin;
 
+  getSettingDefinitions() {
+    return [];
+  }
+
   constructor(app: App, plugin: DiceTablePlugin) {
     super(app, plugin);
     this.plugin = plugin;
@@ -455,7 +459,7 @@ class DiceTableSettingTab extends PluginSettingTab {
     const { containerEl } = this;
     containerEl.empty();
 
-    containerEl.createEl("h2", { text: "Dice Table" });
+    new Setting(containerEl).setName("Dice Table").setHeading();
 
     // ── Distribution mode dropdown ──────────────────────────────────────────
     new Setting(containerEl)
@@ -476,42 +480,6 @@ class DiceTableSettingTab extends PluginSettingTab {
             await this.plugin.saveSettings();
           });
       });
-
-    // ── Mode descriptions ───────────────────────────────────────────────────
-    const descEl = containerEl.createEl("div", { cls: "setting-item-description" });
-    descEl.style.marginBottom = "1.5em";
-    descEl.innerHTML = `
-      <table style="border-collapse:collapse;font-size:0.85em;width:100%;">
-        <thead>
-          <tr>
-            <th style="text-align:left;padding:4px 8px;border-bottom:1px solid var(--background-modifier-border)">Mode</th>
-            <th style="text-align:left;padding:4px 8px;border-bottom:1px solid var(--background-modifier-border)">Bucket sizes (d20, 8 rows)</th>
-            <th style="text-align:left;padding:4px 8px;border-bottom:1px solid var(--background-modifier-border)">Best for</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td style="padding:4px 8px">Alternating</td>
-            <td style="padding:4px 8px;font-family:monospace">2,3,2,3,2,3,2,3</td>
-            <td style="padding:4px 8px">Maximally even spread; no obvious bias</td>
-          </tr>
-          <tr>
-            <td style="padding:4px 8px">Subtle top-weight</td>
-            <td style="padding:4px 8px;font-family:monospace">3,3,3,3,2,2,2,2</td>
-            <td style="padding:4px 8px">Slight preference for low rolls</td>
-          </tr>
-          <tr>
-            <td style="padding:4px 8px">Bottom-weighted</td>
-            <td style="padding:4px 8px;font-family:monospace">1,1,2,2,3,3,4,4</td>
-            <td style="padding:4px 8px">High rolls are much more likely</td>
-          </tr>
-          <tr>
-            <td style="padding:4px 8px">Top-weighted</td>
-            <td style="padding:4px 8px;font-family:monospace">4,4,3,3,2,2,1,1</td>
-            <td style="padding:4px 8px">Low rolls are much more likely</td>
-          </tr>
-        </tbody>
-      </table>`;
 
     // ── Auto-fill toggle ────────────────────────────────────────────────────
     new Setting(containerEl)
